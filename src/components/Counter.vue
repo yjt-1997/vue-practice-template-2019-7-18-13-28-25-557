@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <button v-on:click="decrease">-</button>
     <span>{{ count }}</span>
     <button v-on:click="increase">+</button>
@@ -17,9 +17,11 @@ export default {
   methods : {
     decrease(){
       this.count--;
+      this.$emit('calculateToCounter',-1) 
     },
     increase(){
       this.count++;
+      this.$emit('calculateToCounter',1);
     }
   }
 }
@@ -32,6 +34,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 20px;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Counter v-for="n in countNumber" v-bind:key="n"></Counter>
+    <Counter v-for="n in countNumber" v-bind:key="n" @calculateToCounter="calculate"></Counter>
   </div>
 </template>
 
@@ -12,6 +12,17 @@ export default {
   },
   components: {
     Counter
+  },
+  data() {
+    return {
+      counterSum: 0
+    };
+  },
+  methods: {
+    calculate(number) {
+      this.counterSum += number;
+      this.$emit("transmit", this.counterSum);
+    }
   }
 };
 </script>

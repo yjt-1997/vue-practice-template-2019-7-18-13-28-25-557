@@ -1,21 +1,33 @@
 <template>
   <div id="app">
-    <input type="text" v-model="countNumber" />
-    <CounterGroup :countNumber="parseInt(countNumber)||0"></CounterGroup>
+    <input type="text" v-model="countNumber" v-bind:oninput="init" />
+    <CounterSum :countSum="countSum"></CounterSum>
+    <CounterGroup :countNumber="parseInt(countNumber)||0"  @transmit="addCountSum"></CounterGroup>
   </div>
 </template>
 
 <script>
 import CounterGroup from "./components/CounterGroup";
+import CounterSum from "./components/CounterSum ";
 export default {
   name: "app",
   components: {
-    CounterGroup
+    CounterGroup,
+    CounterSum
   },
   data() {
     return {
-      countNumber: 0
+      countNumber: 0,
+      countSum: 0
     };
+  },
+  methods: {
+    init() {
+      this.countSum = 0;
+    },
+    addCountSum(countSum) {
+      this.countSum = countSum;
+    }
   }
 };
 </script>

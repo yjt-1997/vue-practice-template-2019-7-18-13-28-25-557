@@ -1,23 +1,28 @@
 <template>
   <div id="app">
-    <Counter></Counter>
-    <Counter></Counter>
+    <input type="text" v-model="countNumber" />
+    <CounterGroup :countNumber="parseInt(countNumber)||0"></CounterGroup>
   </div>
 </template>
 
 <script>
-import Counter from './Counter.vue'
+import CounterGroup from "./components/CounterGroup";
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Counter
+    CounterGroup
+  },
+  data() {
+    return {
+      countNumber: 0
+    };
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

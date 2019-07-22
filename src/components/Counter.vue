@@ -17,11 +17,11 @@ export default {
   methods : {
     decrease(){
       this.count--;
-      this.$emit('calculateToCounter',-1) 
+      this.$store.commit('decrease');
     },
     increase(){
       this.count++;
-      this.$emit('calculateToCounter',1);
+      this.$store.commit('increase');
     }
   }
 }

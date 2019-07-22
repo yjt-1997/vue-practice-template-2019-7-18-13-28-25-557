@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <input type="text" v-model="countNumber" v-bind:oninput="init" />
-    <CounterSum :countSum="countSum"></CounterSum>
-    <CounterGroup :countNumber="parseInt(countNumber)||0"  @transmit="addCountSum"></CounterGroup>
+    <input type="text" v-model="countNumber"/>
+    <CounterSum></CounterSum>
+    <CounterGroup :countNumber="parseInt(countNumber)||0"></CounterGroup>
   </div>
 </template>
 
@@ -18,17 +18,8 @@ export default {
   data() {
     return {
       countNumber: 0,
-      countSum: 0
     };
   },
-  methods: {
-    init() {
-      this.countSum = 0;
-    },
-    addCountSum(countSum) {
-      this.countSum = countSum;
-    }
-  }
 };
 </script>
 

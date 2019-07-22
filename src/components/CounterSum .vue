@@ -7,8 +7,10 @@
 <script>
 export default {
   name: "CounterSum",
-  props: {
-    countSum: Number
+  computed: {
+    countSum() {
+      return this.$store.getters.getCounter;
+    }
   }
 };
 </script>
